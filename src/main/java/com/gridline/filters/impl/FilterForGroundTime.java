@@ -14,7 +14,11 @@ public class FilterForGroundTime implements FilterForFlights {
     public FilterForGroundTime(long maxGroundTimeMinutes) {
         this.maxGroundTimeMinutes = maxGroundTimeMinutes;
     }
-
+    /**
+     * method which accept a list of flights and if time between arriving of first flight and departure of 2nd flight is more than 2 hours it's will not to be showed
+     * @param flights
+     * @return List of filtered flights
+     */
     @Override
     public List<Flight> filter(List<Flight> flights) {
         return flights.stream()

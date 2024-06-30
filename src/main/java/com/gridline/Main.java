@@ -19,7 +19,6 @@ public class Main {
 
         List<Flight> filteredFlights = filterManager.filter(flights);
 
-        System.out.println(filteredFlights);
         System.out.println(flights1);
 
 

@@ -5,6 +5,9 @@ import com.gridline.Flight;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * It's a class which manage other filters and print it after that
+ */
 public class PrintFilteredFlights {
     private final List<FilterForFlights> filters = new ArrayList<>();
 
@@ -18,11 +21,12 @@ public class PrintFilteredFlights {
         for (FilterForFlights filter : filters) {
             result = filter.filter(result);
         }
+        printFiltered(result);
         return result;
     }
 
     public void printFiltered(List<Flight> flights) {
-        flights.forEach(System.out::println);
+        System.out.println(flights);;
     }
 
 }
