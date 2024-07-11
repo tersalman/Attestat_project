@@ -40,7 +40,7 @@ public class FilterForFlightsTEst {
     void testMaxGroundTimeFilter() {
         FilterForFlights filter = new FilterForGroundTime(120);
         List<Flight> filteredFlights = filter.filter(flights);
-        assertEquals(5, filteredFlights.size());
+        assertEquals(4, filteredFlights.size());
     }
 
     @Test
@@ -51,6 +51,6 @@ public class FilterForFlightsTEst {
         filterManager.addFilter(new FilterForGroundTime(120));
 
         List<Flight> filteredFlights = filterManager.filter(flights);
-        assertEquals(3, filteredFlights.size());
+        assertEquals(2, filteredFlights.size());
     }
 }

@@ -24,15 +24,14 @@ public class FilterForGroundTime implements FilterForFlights {
         return flights.stream()
                 .filter(flight -> {
                     List<Segment> segments = flight.getSegments();
+                    long totalGroundTime = 0;
                     for (int i = 0; i < segments.size() - 1; i++) {
                         Segment current = segments.get(i);
                         Segment next = segments.get(i + 1);
-                        long groundTime = Duration.between(current.getArrivalDate(), next.getDepartureDate()).toMinutes();
-                        if (groundTime > maxGroundTimeMinutes) {
-                            return false;
-                        }
+                        long groundTime = java.time.Duration.between(current.getArrivalDate(), next.getDepartureDate()).toMinutes();
+                        totalGroundTime += groundTime;
                     }
-                    return true;
+                    return totalGroundTime <= maxGroundTimeMinutes;
                 })
                 .collect(Collectors.toList());
     }
