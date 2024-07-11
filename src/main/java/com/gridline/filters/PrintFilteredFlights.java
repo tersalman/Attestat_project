@@ -21,12 +21,19 @@ public class PrintFilteredFlights {
         for (FilterForFlights filter : filters) {
             result = filter.filter(result);
         }
-        printFiltered(result);
         return result;
     }
 
-    public void printFiltered(List<Flight> flights) {
-        System.out.println(flights);;
+    public void applyFilters(List<Flight> flights) {
+        for (FilterForFlights filter : filters) {
+            flights = filter.filter(flights);
+            printFlights(flights);
+        }
+    }
+
+    private void printFlights(List<Flight> flights) {
+        flights.forEach(System.out::println);
+        System.out.println("----------");
     }
 
 }
